@@ -12,7 +12,7 @@ export function HeroVisual() {
     <div className="preview-window"><div className="preview-toolbar"><span className="mini-logo"><Braces size={14} /></span><div /><span /><span /></div><div className="preview-content"><span className="preview-eyebrow">FROM IDEA TO INTERFACE</span><strong>Make it<br />meaningful<span>.</span></strong><div className="preview-lines"><i /><i /></div><div className="preview-button">Let’s build <ArrowUpRight size={12} /></div><div className="preview-shapes"><i /><i /><i /><span /></div></div></div>
     <div className="visual-label"><span><Check size={13} /></span>작은 디테일까지, 꼼꼼하게.</div>
     <div className="floating-stack"><Layers3 size={18} /><span>Designed to work.</span></div>
-    <div className="visual-cursor"><MousePointer2 size={27} fill="currentColor" /><span>류정무</span></div>
+    <div className="visual-cursor"><MousePointer2 size={27} fill="currentColor" /><span>Jeongmu Ryu</span></div>
     <div className="visual-caption"><span>IDEA</span><i /><span>CODE</span><i /><span>EXPERIENCE</span></div>
   </div>;
 }

@@ -1,4 +1,4 @@
-# 류정무.dev
+# Jeongmu Ryu
 
 GitHub 공개 프로젝트와 기술 글을 함께 소개하는 외주 개발용 블로그입니다. Next.js 16.4.2 App Router, React 19.3.1, TypeScript, Tailwind CSS 4.3.3을 사용하며 빌드 결과를 `out/`에 정적 파일로 생성합니다. Markdown은 `react-markdown`, 아이콘은 `lucide-react`로 표시합니다.
 

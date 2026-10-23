@@ -6,7 +6,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: { default: site.title, template: '%s · 류정무.dev' },
+  title: { default: site.title, template: '%s · Jeongmu Ryu' },
   description: site.description,
   openGraph: { title: site.title, description: site.description, siteName: site.name, locale: 'ko_KR', type: 'website', images: [{ url: '/og-cover.png', width: 1200, height: 630 }] },
   twitter: { card: 'summary_large_image' },

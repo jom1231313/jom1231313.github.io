@@ -65,7 +65,7 @@ export function SiteShell({ notes, children }: { notes: NoteSummary[]; children:
     const kind = String(form.get('kind'));
     const details = String(form.get('details')).trim();
     if (!name || !email || !details) { setCopyStatus('공백 없이 이름과 이메일, 내용을 입력해주세요.'); return; }
-    const body = `안녕하세요, 류정무님. 프로젝트 문의드립니다.\n\n이름 / 회사: ${name}\n회신 이메일: ${email}\n프로젝트 종류: ${kind}\n예산 / 일정: ${String(form.get('budget')).trim() || '협의 희망'}\n\n프로젝트 내용\n${details}`;
+    const body = `안녕하세요, Jeongmu Ryu님. 프로젝트 문의드립니다.\n\n이름 / 회사: ${name}\n회신 이메일: ${email}\n프로젝트 종류: ${kind}\n예산 / 일정: ${String(form.get('budget')).trim() || '협의 희망'}\n\n프로젝트 내용\n${details}`;
     setCopyStatus('');
     setDraft({ body, href: `mailto:${site.email}?subject=${encodeURIComponent(`[프로젝트 문의] ${name} — ${kind}`)}&body=${encodeURIComponent(body)}` });
   }
@@ -82,7 +82,7 @@ export function SiteShell({ notes, children }: { notes: NoteSummary[]; children:
     <a className="skip-link" href="#main">본문으로 건너뛰기</a>
     <header className="site-header">
       <div className="container header-inner">
-        <Link href="/" className="brand" aria-label="류정무.dev 홈"><span className="brand-symbol"><Code2 size={23} strokeWidth={2.4} /></span><span>류정무<span className="brand-dev">.dev</span></span></Link>
+        <Link href="/" className="brand" aria-label="Jeongmu Ryu 홈"><span className="brand-symbol"><Code2 size={23} strokeWidth={2.4} /></span><span>Jeongmu<span className="brand-dev"> Ryu</span></span></Link>
         <nav className="desktop-nav" aria-label="주 메뉴">
           <Link href="/#notes" className={pathname.startsWith('/notes') ? 'active' : ''}>개발 노트</Link>
           <Link href="/#projects">프로젝트</Link>
@@ -102,8 +102,8 @@ export function SiteShell({ notes, children }: { notes: NoteSummary[]; children:
     </header>
     {children}
     <footer className="site-footer">
-      <div className="container footer-top"><Link href="/" className="brand"><span className="brand-symbol"><Code2 size={21} /></span><span>류정무<span className="brand-dev">.dev</span></span></Link><p>만들고, 기록하고, 조금씩 더 나아갑니다.</p><div className="footer-social"><a href={site.github} target="_blank" rel="noreferrer" aria-label="GitHub 새 창으로 열기"><Github size={19} /></a><a href={`mailto:${site.email}`} aria-label="이메일 보내기"><Mail size={19} /></a><a href="/feed.xml" aria-label="RSS 구독">RSS <ArrowUpRight size={13} /></a></div></div>
-      <div className="container footer-bottom"><span>© {new Date().getUTCFullYear()} 류정무. Built with care.</span><span>Next.js · TypeScript · Tailwind CSS <span className="tiny-dot" /></span></div>
+      <div className="container footer-top"><Link href="/" className="brand"><span className="brand-symbol"><Code2 size={21} /></span><span>Jeongmu<span className="brand-dev"> Ryu</span></span></Link><p>만들고, 기록하고, 조금씩 더 나아갑니다.</p><div className="footer-social"><a href={site.github} target="_blank" rel="noreferrer" aria-label="GitHub 새 창으로 열기"><Github size={19} /></a><a href={`mailto:${site.email}`} aria-label="이메일 보내기"><Mail size={19} /></a><a href="/feed.xml" aria-label="RSS 구독">RSS <ArrowUpRight size={13} /></a></div></div>
+      <div className="container footer-bottom"><span>© {new Date().getUTCFullYear()} Jeongmu Ryu. Built with care.</span><span>Next.js · TypeScript · Tailwind CSS <span className="tiny-dot" /></span></div>
     </footer>
 
     <dialog ref={searchDialog} aria-label="개발 노트 검색" className="search-dialog" onClick={(e) => { if (e.target === e.currentTarget) searchDialog.current?.close(); }}>
