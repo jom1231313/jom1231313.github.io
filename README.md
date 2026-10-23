@@ -84,3 +84,16 @@ Playwright 브라우저 설치는 처음 한 번 필요합니다. 배포 전에�
 시스템에 설치된 Chrome으로 검증하려면 `PLAYWRIGHT_CHANNEL=chrome` 환경 변수를 사용할 수 있습니다. 한글 폰트는 로컬 Pretendard를 사용하며 배포 라이선스는 `public/fonts/LICENSE.txt`에 포함했습니다.
 
 문의 기능은 이메일 앱을 여는 `mailto:` 링크와 주소 복사입니다. 서버에서 이메일을 보내거나 문의 내용을 저장하지 않습니다. 로그인, 관리자 화면, 데이터베이스와 CMS도 포함하지 않습니다.
+
+## 보안 운영
+
+GitHub Pages에는 `out/`의 정적 파일만 배포합니다. 검색과 문의 초안 작성은 브라우저 안에서 처리하며 문의 내용은 서버나 브라우저 저장소에 보관하지 않습니다. 메일 앱에서 직접 전송하면 해당 메일 서비스로 내용이 전달됩니다. 공개한 연락처 이메일에는 스팸이 올 수 있습니다.
+
+- 빌드 작업은 소스·Pages 읽기 권한만 사용하고, 배포 작업에만 Pages 쓰기와 배포 인증 권한을 부여합니다.
+- GitHub Actions는 공식 저장소의 전체 커밋 SHA로 고정했습니다. Dependabot이 npm과 Actions 업데이트를 매주 제안하며 자동 병합은 하지 않습니다.
+- 저장소의 Dependabot 취약점 알림·보안 업데이트와 secret scanning·push protection을 활성화했습니다. 경고와 업데이트 PR은 GitHub Security 및 Pull requests에서 확인합니다. SHA로 고정한 Actions의 취약점 알림에는 GitHub의 제한이 있어 업데이트 PR도 검토해야 합니다.
+- `.env*`와 로컬 배포 도구는 Git에서 제외합니다. `NEXT_PUBLIC_` 설정과 이 저장소의 코드는 공개되므로 API 키·비밀번호·개인정보를 넣지 않습니다.
+
+2026-10-23 점검에서 npm의 알려진 의존성 취약점은 0건이었으며, 당시 커밋 기록의 주요 토큰·개인키 패턴에서도 일치가 없었습니다. Markdown·검색·문의 입력의 스크립트 삽입과 메일 수신자 추가 시도도 차단되는 것을 확인했습니다. 이는 해당 시점과 점검 범위의 결과입니다.
+
+현재 호스팅은 HTTPS와 HSTS를 제공하며 Referrer 정책은 HTML 메타 태그로 설정합니다. CSP, `frame-ancestors`/X-Frame-Options, `nosniff`, Permissions-Policy 등의 응답 헤더는 현재 Pages 배포에 설정되어 있지 않습니다. Next.js의 `headers` 옵션은 정적 export에서 적용되지 않으므로, 로그인·민감한 정보 처리 기능이나 엄격한 헤더 정책이 필요하면 호스팅 구성을 다시 검토합니다.
